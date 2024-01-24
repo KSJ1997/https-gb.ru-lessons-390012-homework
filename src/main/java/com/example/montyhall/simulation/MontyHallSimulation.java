@@ -12,10 +12,10 @@ public class MontyHallSimulation {
     private static final Random random = new Random();
 
     private final int totalGames;
-    private final Map<Integer, Boolean> results; // Use Boolean to store win/loss
+    private final Map<Integer, Boolean> results;
 
     public MontyHallSimulation() {
-        this.totalGames = 1000; // You can change the totalGames as needed
+        this.totalGames = 1000; 
         this.results = new HashMap<>();
     }
 
@@ -25,16 +25,16 @@ public class MontyHallSimulation {
             Player player = new Player();
             player.selectDoor();
 
-            // Host opens a door without a car
+            
             int hostOpenedDoor = openDoorWithoutCar(doors, player);
 
-            // Player decides whether to switch doors
+            
             boolean switchDoor = random.nextBoolean();
             if (switchDoor) {
                 switchDoor(doors, hostOpenedDoor, player);
             }
 
-            // Record the result
+            
             boolean isWin = doors[player.hasSelectedDoor()].isOpened() && doors[player.hasSelectedDoor()].hasCar();
             results.put(i, isWin);
         }
